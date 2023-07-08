@@ -1,76 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Visualización de datos</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Gráfico de ejemplo</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
 </head>
 <body>
-    <canvas id="myChart"></canvas>
+  <canvas id="myChart" width="400" height="400"></canvas>
 
-    <table id="myTable">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Valor</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Elemento 1</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td>Elemento 2</td>
-                <td>20</td>
-            </tr>
-            <tr>
-                <td>Elemento 3</td>
-                <td>15</td>
-            </tr>
-            <tr>
-                <td>Elemento 4</td>
-                <td>25</td>
-            </tr>
-            <tr>
-                <td>Elemento 5</td>
-                <td>5</td>
-            </tr>
-        </tbody>
-    </table>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Datos de ejemplo
+    var data = {
+      labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo"],
+      datasets: [{
+        label: "Ventas",
+        data: [120, 200, 150, 300, 180],
+        backgroundColor: "rgba(0, 123, 255, 0.5)"
+      }]
+    };
 
-    <script>
-        // Obtén los datos de la tabla
-        var table = document.getElementById('myTable');
-        var data = [];
-        for (var i = 1; i < table.rows.length; i++) {
-            var row = table.rows[i];
-            var name = row.cells[0].innerHTML;
-            var value = parseFloat(row.cells[1].innerHTML);
-            data.push({ name: name, value: value });
-        }
+    // Configuración del gráfico
+    var options = {
+      responsive: true,
+      maintainAspectRatio: false
+    };
 
-        // Crea la gráfica
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var chart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: data.map(item => item.name),
-                datasets: [{
-                    label: 'Valores',
-                    data: data.map(item => item.value),
-                    backgroundColor: 'rgba(0, 123, 255, 0.5)', // Color de las barras
-                    borderColor: 'rgba(0, 123, 255, 1)', // Color del borde de las barras
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+    // Crear gráfico
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myChart = new Chart(ctx, {
+      type: "bar",
+      data: data,
+      options: options
+    });
+  </script>
 </body>
 </html>
