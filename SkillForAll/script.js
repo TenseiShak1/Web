@@ -108,7 +108,7 @@ console.log(
 //Sección 2.2.1
 //Tipo de datos complejos 
 //objeto
-let name = "Luis";
+/*let name = "Luis";
 let phone = "+57 311-4377-329"
 let pass = "badgsgashafafaf"
 var register ={
@@ -117,3 +117,77 @@ var register ={
     Phone: phone,
 }
 console.log(register);
+
+//Sección 2.2.3
+/**
+ * Practica 
+ * pregunta 1: Cree un objeto que describa un boleto de tren y guárdelo en la variable del 
+ * boleto. El objeto debe tener tres campos:
+estación de partida ( nombre clave desde, indique el nombre de la estación más cercana en 
+su área como un valor );
+estación final ( nombre clave a, dar cualquier otra estación dentro de los 100 km como 
+un valor );
+el precio del boleto ( nombre clave precio, indique el monto que desea pagar por este
+boleto como un valor ).
+El objeto debe crearse utilizando corchetes rizados, en los que todos los campos creados 
+se enumerarán de inmediato. Luego muestre los valores de todos los campos del ticket en 
+la consola.
+ *//*
+let ticket ={
+    form:"Madrid", 
+    to: "Francia",
+    price: 20 
+}
+console.log(
+    `Ticket from: ${ticket.form}\n`+
+    `Ticket to: ${ticket.to}\n`+
+    `Ticket price: ${ticket.price}    
+    `
+);/**
+    Pregunta 2: Declara un objeto vacío y guárdalo en una variable de persona. 
+    Usando notación de puntos, agregue el nombrey apellidocampos al objeto ingresando 
+    sus datos como valores. Intente mostrar los campos individuales en la consola.
+*//*
+let persona ={}; persona.name="Luis";persona.apellido ="Nieto"
+console.log(`Nombre completo = ${persona.name} ${persona.apellido}` )
+
+/**
+ * Pregunta 3: Estamos configurando nuestra pequeña biblioteca de libros 
+ * sobre programación de JavaScript. Tenemos tres libros y queremos preparar una
+ *  lista de ellos. Almacenaremos tres piezas de información sobre cada libro: título,
+ *  autor y número de páginas:
+Hablando JavaScript, Axel Rauschmayer, 460;
+Programación de aplicaciones de JavaScript, Eric Elliott, 254;
+Comprensión del ECMAScript 6, Nicholas C. Zakas, 352.
+Crea una matriz de tres objetos que representan los libros. 
+Cada objeto debe tener las siguientes propiedades: título, autor, páginas.
+ */
+
+let libros = [
+    {titulo:"Hablando Javascript",autor:"Alex rauschmayer",paginas:460},
+    {titulo:"Programacion orientada a Javascript",autor:"Eric Elliot",paginas:254},
+    {titulo:"Comprensión del ECMAScript 6",autor:"Nicholas C. Zakas",paginas:352}
+];
+/**Pregunta 4: Agregue un nuevo libro a la colección: Aprendizaje de patrones de 
+ * diseño de JavaScript, por Addy Osmani, 254 páginas. Use el método apropiado para 
+ * hacer esto, que adjuntará el libro al final de la matriz. Muestre la longitud de 
+ * la matriz y, a su vez, todos los nombres de libros en la colección. */
+
+let newbook ={titulo:"Aprendizaje de patrones de diseño de JAvascript",autor:"Addy Osmani", paginas: 254};
+libros.push(newbook);
+console.log(libros);
+
+for(i =0 ; i<= libros.length-1;i++){
+    console.log(
+    `${libros[i].titulo}\n`
+    );
+};
+let sectionLibros=libros.slice(-2);
+libros.shift();
+console.log(
+    `Tamaño matriz: ${libros.length}\n`+
+    `${libros[0].titulo}\n${libros[1].titulo}\n${libros[2].titulo}`
+);
+
+
+
